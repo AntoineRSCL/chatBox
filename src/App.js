@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Formulaire from './components/Formulaire';
+import Message from './components/Message';
+import { useParams } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  let { login } = useParams()
+
+  const [pseudo, setPseudo] = useState(login)
+  const [messages, setMessages] = useState({})
+
+  const addMessage = message => {
+    const newMessages = {...messages}
+    newMessages[`message-${Date.now()}`] = message
+    setMessages({messages: newMessages})
+  }
+
+  
+
+  return ( 
+    <div className="box">
+    <div>
+      <div className="messages">
+        <Message />
+        <Message />
+        <Message />
+      </div>
     </div>
-  );
+    <Formulaire
+      pseudo={pseudo}
+      addMessage={addMessage}
+    />
+  </div>
+   );
 }
-
+ 
 export default App;

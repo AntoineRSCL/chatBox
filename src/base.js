@@ -1,16 +1,17 @@
 import { initializeApp } from 'firebase/app'
-import { getDatabase } from 'firebase/database'
+import { getFirestore } from 'firebase/firestore'
 
-const firebaseApp = initializeApp({
-    apiKey: "AIzaSyAO2dbYXcLCi5V1mnm8v3Vo_UGR5jm9ODg",
-    authDomain: "chatbox-1c7f4.firebaseapp.com",
-    databaseURL: "https://chatbox-1c7f4-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "chatbox-1c7f4",
-    storageBucket: "chatbox-1c7f4.appspot.com",
-    messagingSenderId: "645031695046",
-    appId: "1:645031695046:web:9ffdc55a06e972edeffdc7"
-})
+const firebaseConfig = {
+    apiKey: "AIzaSyBmypWbidC2IdCErzryZMTDq-Ink7_Q1ms",
+    authDomain: "fir-student-98ffc.firebaseapp.com",
+    projectId: "fir-student-98ffc",
+    storageBucket: "fir-student-98ffc.appspot.com",
+    messagingSenderId: "93196120215",
+    appId: "1:93196120215:web:9078e9125af0dc593c39d2"
 
-const database = getDatabase(firebaseApp)
+}
 
-export default database
+const app = initializeApp(firebaseConfig)
+const firestore = getFirestore(app)
+
+export default firestore
